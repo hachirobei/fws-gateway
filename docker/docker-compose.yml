@@ -5,7 +5,7 @@ services:
     build:
       context: .
     ports:
-      - "80:80"
+      - "${FWS_GATEWAY_PORT}:${FWS_GATEWAY_PORT}"
     networks:
       - flood_shared_network
     depends_on:
