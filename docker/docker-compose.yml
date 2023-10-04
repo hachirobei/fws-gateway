@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  fws-gateway:
+    build:
+      context: .
+    ports:
+      - "80:80"
+    networks:
+      - flood_shared_network
+    depends_on:
+      - fws-auth-service
+      - fws-info-service
+      - fws-data-poller
+
+networks:
+  flood_shared_network:
+    external: true
