@@ -3,15 +3,16 @@ version: '3.8'
 services:
   fws-gateway:
     build:
-      context: .
+      context: ..
+      dockerfile: docker/dockerfile
+    container_name: fws_gateway
+    hostname: fws_gateway
     ports:
       - "${FWS_GATEWAY_PORT}:${FWS_GATEWAY_PORT}"
+    volumes:
+      - ../default.conf:/etc/nginx/default.conf
     networks:
       - flood_shared_network
-    depends_on:
-      - fws-auth-service
-      - fws-info-service
-      - fws-data-poller
 
 networks:
   flood_shared_network:

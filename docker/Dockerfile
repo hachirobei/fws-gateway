@@ -3,11 +3,8 @@ FROM nginx:latest
 
 LABEL maintainer="hachirobei93@gmail.com"
 
-# Remove default Nginx configuration
-RUN rm /etc/nginx/conf.d/default.conf
-
 # Copy custom Nginx configuration from the current directory
-COPY nginx.conf /etc/nginx/conf.d/
+COPY ../docker/default.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
