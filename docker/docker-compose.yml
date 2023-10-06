@@ -6,6 +6,7 @@ services:
       context: ..
       dockerfile: docker/dockerfile
     container_name: fws_gateway
+    restart: always
     hostname: fws_gateway
     ports:
       - "${FWS_GATEWAY_PORT}:${FWS_GATEWAY_PORT}"
@@ -13,6 +14,10 @@ services:
       - ../default.conf:/etc/nginx/default.conf
     networks:
       - flood_shared_network
+    links: 
+      -fws-auth-service
+      -fws-info-service
+      -fws-data-poller
 
 networks:
   flood_shared_network:
