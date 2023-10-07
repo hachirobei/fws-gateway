@@ -11,13 +11,9 @@ services:
     ports:
       - "${FWS_GATEWAY_PORT}:${FWS_GATEWAY_PORT}"
     volumes:
-      - ../default.conf:/etc/nginx/default.conf
+      - ./default.conf:/etc/nginx/default.conf
     networks:
       - flood_shared_network
-    links: 
-      -fws-auth-service
-      -fws-info-service
-      -fws-data-poller
 
 networks:
   flood_shared_network:
