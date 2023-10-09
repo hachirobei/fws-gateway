@@ -4,7 +4,7 @@ services:
   fws-gateway:
     build:
       context: ..
-      dockerfile: docker/dockerfile
+      dockerfile: docker/Dockerfile
     container_name: fws_gateway
     restart: always
     hostname: fws_gateway
